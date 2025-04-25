@@ -1,9 +1,9 @@
-<!-- Загрузка профиля -->
+
 <div *ngIf="isLoadingProfile; else profileContent" class="loading-block">
   <p>Loading profile...</p>
 </div>
 
-<!-- Профиль -->
+
 <ng-template #profileContent>
   <div *ngIf="userProfile; else errorProfile" class="profile-card">
     <img [src]="'https://api.dicebear.com/7.x/miniavs/svg?seed=' + userProfile.name"
@@ -13,18 +13,17 @@
     <p>Registration date: {{ userProfile.registrationDate }}</p>
   </div>
 
-  <!-- Ошибка загрузки профиля -->
+
   <ng-template #errorProfile>
     <p class="error-text">Failed to load profile.</p>
   </ng-template>
 </ng-template>
 
-<!-- Загрузка избранных фильмов -->
+
 <div *ngIf="isLoadingFavourites; else favouritesContent" class="loading-block">
   <p>Loading featured movies...</p>
 </div>
 
-<!-- Избранные -->
 <ng-template #favouritesContent>
   <div *ngIf="favouriteMovies.length === 0; else favouriteList" class="empty-text">
     <p>You don't have any favorite movies.</p>
