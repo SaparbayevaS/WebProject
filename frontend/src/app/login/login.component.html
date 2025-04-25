@@ -1,0 +1,11 @@
+<h2 class="title">Login</h2>
+
+<form (ngSubmit)="onSubmit()" class="login-form">
+  <label for="name">Name</label>
+  <input id="name" [(ngModel)]="loginData.username" name="name" required>
+
+  <label for="password">Password</label>
+  <input id="password" [(ngModel)]="loginData.password" name="password" required type="password">
+
+  <button type="submit">Login</button>
+</form>
