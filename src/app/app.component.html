@@ -1,0 +1,24 @@
+<nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/movies" class="logo">🎬 MovieApp</a>
+    </div>
+  
+    <div class="nav-right">
+      <ng-container *ngIf="!isAuthenticated; else loggedIn">
+        <select [(ngModel)]="selectedAction" name="action" id="action">
+          <option value="login">Login</option>
+          <option value="register">Register</option>
+        </select>
+        <button (click)="onSubmit()">Choose</button>
+      </ng-container>
+  
+      <ng-template #loggedIn>
+        <button (click)="navigateToProfile()" class="nav-btn">{{ username }}</button>
+        <button (click)="navigateToMovies()" class="nav-btn">Movies</button>
+        <button (click)="logout()" class="nav-btn">Logout</button>
+      </ng-template>
+    </div>
+  </nav>
+  
+  <router-outlet></router-outlet>
+  
